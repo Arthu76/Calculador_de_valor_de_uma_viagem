@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style src="style.css">
+      * {
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 20px;
+      }
+      body {
+        display: flex;
+        margin-top: 7vh;
+        margin-left: 50vh;
+      }
+
+      .titulos {
+        position: absolute;
+        text-align: center;
+      }
+
+      h1 {
+        margin: 0;
+        font-weight: 1000;
+        color: rgb(77, 109, 115);
+      }
+
+      h2 {
+        margin: 0;
+        margin-top: 10px;
+        color: rgb(117, 163, 171);
+      }
+
+      select {
+        display: flex;
+        width: 100%;
+        background-color: rgb(223, 229, 230);
+      }
+
+      hr {
+        margin: 0;
+      }
+
+      label,
+      .pergunta {
+        color: rgb(77, 109, 115);
+      }
+
+      .resposta {
+        color: rgb(44, 64, 68);
+      }
+
+      .respostaFinal > p {
+        display: inline;
+      }
+
+      section {
+        border: 2px solid rgb(175, 196, 198);
+        height: 450px;
+        width: 300px;
+        padding: 15px;
+        border-radius: 5px;
+        margin-right: 10px;
+        margin-top: 120px;
+      }
+
+      .numPessoas {
+        display: flex;
+        justify-content: center;
+        margin-top: 10px;
+      }
+
+      .numAdultos {
+        width: 30px;
+        margin-left: 5px;
+        margin-right: 10px;
+      }
+      .numCriancas {
+        width: 30px;
+        margin-left: 5px;
+      }
+      .conteudo > div {
+        padding: 10px;
+      }
+
+      .resultado > .conteudo {
+        margin-top: 15%;
+      }
+
+      @media (max-width: 750px) {
+        body {
+          display: flex;
+          margin-top: 7vh;
+          margin-left: 5vh;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="titulos">
+      <h1>Faça a viagem dos seus sonhos!</h1>
+      <h2>
+        Use milhas para ter os melhores pacotes de viagens e aproveite suas
+        férias!
+      </h2>
+    </div>
+    <section class="opcoes">
+      <div class="conteudo">
+        <div>
+          <label for="pais-origem">País de origem:</label>
+          <select name="pais-origem" id="paisOrigem">
+            <option value="0" selected disabled></option>
+          </select>
+        </div>
+        <div>
+          <label for="cidade-origem">Cidade de origem:</label>
+          <select name="cidade-origem" id="cidadeOrigem"></select>
+        </div>
+        <div>
+          <label for="cidade-destino">País de destino:</label>
+          <select name="cidade-destino" id="paisDestino">
+            <option value="0" selected disabled></option>
+          </select>
+        </div>
+        <div>
+          <label for="pais-origem">Cidade de destino:</label>
+          <select name="pais-origem" id="cidadeDestino"></select>
+        </div>
+        <div>
+          <div class="numPessoas">
+            <label for="num-adultos">Adultos:</label>
+            <input
+              id="numeroAdultos"
+              class="numAdultos"
+              type="number"
+              name="num-adultos"
+              min="1"
+              value="1"
+            />
+            <label for="num-criancas">Crianças:</label>
+            <input
+              id="numeroCriancas"
+              class="numCriancas"
+              type="number"
+              name="num-criancas"
+              min="0"
+              value="0"
+            />
+          </div>
+        </div>
+        <div>
+          <form action="" id="formTipoVoo">
+            <input type="radio" name="tipoDeVoo" id="classeEconomica" />
+            <label for="tipoDeVoo">Economica</label>
+            <input type="radio" name="tipoDeVoo" id="classeExecutiva" />
+            <label for="tipoDeVoo">Executiva</label>
+          </form>
+        </div>
+        <div>
+          <label for="miles">Deseja usar milhas?</label>
+          <input
+            type="range"
+            name="miles"
+            min="0"
+            max="100000"
+            value="0"
+            id="milhas"
+          />
+        </div>
+      </div>
+    </section>
+    <section class="resultado">
+      <div class="conteudo">
+        <div class="respostaFinal">
+          <p class="pergunta">Origem:</p>
+          <p id="origem" class="resposta"></p>
+        </div>
+        <hr />
+        <div class="respostaFinal">
+          <p class="pergunta">Destino:</p>
+          <p id="destino" class="resposta"></p>
+        </div>
+        <hr />
+        <div class="respostaFinal">
+          <p class="pergunta">Distancia:</p>
+          <p id="distancia" class="resposta"></p>
+        </div>
+        <hr />
+        <div class="respostaFinal">
+          <p id="adultos" class="resposta">1</p>
+          <p class="pergunta">adulto(s),</p>
+          <p id="criancas" class="resposta">0</p>
+          <p class="pergunta">criança(s)</p>
+        </div>
+        <hr />
+        <div class="respostaFinal">
+          <p class="pergunta">Tipo de vôo :</p>
+          <p id="tipoDeViagem" class="resposta"></p>
+        </div>
+        <hr />
+        <div class="respostaFinal">
+          <p class="pergunta">Milhas:</p>
+          <p class="resposta" id="valorMilhas"></p>
+        </div>
+        <hr />
+        <div class="respostaFinal">
+          <p class="pergunta">Valor abatido por milhas:</p>
+          <p class="resposta" id="valorObtidoMilhas"></p>
+        </div>
+        <hr />
+        <div class="respostaFinal">
+          <p class="pergunta">Total:</p>
+          <p class="resposta" id="total"></p>
+        </div>
+      </div>
+    </section>
+
+    <script src="./script.js"></script>
+  </body>
+</html>
